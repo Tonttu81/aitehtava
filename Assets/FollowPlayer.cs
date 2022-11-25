@@ -39,4 +39,16 @@ public class FollowPlayer : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if(collision.tag == "Player")
+        {
+            var healthComponent = collision.GetComponent<Health>();
+            if(healthComponent != null)
+            {
+                healthComponent.TakeDamage(1);
+            }
+        }
+    }
 }
